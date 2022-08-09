@@ -1,0 +1,91 @@
+header {
+	background-color: green;
+	color: #fff !important;
+}
+input {
+	border-radius: 0px !important;
+}
+
+button {
+	border-radius: 0% !important;
+}
+
+footer {
+	background-color: green;
+	color: white !important;
+}
+
+footer a {
+	color: #fff !important;
+	text-decoration: none;
+}
+
+.usernames {
+	font-weight: bolder;
+}
+
+.full-width {
+	width: 100% !important;
+}
+
+.typing-info {
+	font-size: "90%";
+}
+
+.message-content {
+	/*  Used to display the text message as it is without formatting white spaces and empty lines */
+	white-space: pre-line !important;
+}
+
+.error-div {
+	color: red;
+}
+
+/*  Bootstrap classes override */
+.navbar-brand {
+	color: white !important;
+}
+.navbar-text {
+	color: white !important;
+}
+
+.anonymous-username {
+	font-style: italic;
+}
+
+.white-color {
+	color: #fff !important;
+}
+
+.my-link {
+	text-decoration: none;
+}
+
+.message-createdAt {
+	font-size: small !important;
+}
+
+.print-date {
+	font-weight: bolder;
+}
+/* Bootstrap classes override ends here */
+
+#message-content-window-div {
+	height: 78vh;
+
+	/*  Used to keep scrolling down as new messages arrive */
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+#login-component {
+	min-height: 70vh;
+}
+
+@media only screen and (max-width: 600px) {
+	/* No padding in the left and right for the mobiles */
+	.no-x-padding {
+		padding-left: 0% !important;
+		padding-right: 0% !important;
+	}
+}

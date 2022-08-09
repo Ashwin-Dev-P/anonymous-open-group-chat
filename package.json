@@ -1,0 +1,39 @@
+{
+	"name": "mychat",
+	"version": "1.0.0",
+	"description": "Chat application mern",
+	"main": "index.js",
+	"scripts": {
+		"client-install": "npm install --prefix client",
+		"start": "NODE_ENV=production node index.js",
+		"client": "npm start --prefix client",
+		"server": "NODE_ENV=development nodemon index.js",
+		"dev": "concurrently \"npm run server\" \"npm run client\" ",
+		"test": "mocha 'tests/**/*.js'",
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Ashwin-Dev-P/my-chat.git"
+	},
+	"author": "Ashwin Dev",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Ashwin-Dev-P/my-chat/issues"
+	},
+	"homepage": "https://github.com/Ashwin-Dev-P/my-chat#readme",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.0",
+		"express": "^4.17.3",
+		"express-mongo-sanitize": "^2.2.0",
+		"helmet": "^5.1.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^6.5.1",
+		"socket.io": "^4.4.1"
+	},
+	"devDependencies": {
+		"concurrently": "^7.0.0",
+		"nodemon": "^2.0.15"
+	}
+}

@@ -1,0 +1,5 @@
+/* Bootstrap error fix */
+html,
+body {
+	overflow-x: hidden;
+}

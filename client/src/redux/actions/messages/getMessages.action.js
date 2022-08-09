@@ -1,0 +1,50 @@
+import axios from "axios";
+import { LOAD_MESSAGES } from "../types";
+
+const backend_url = process.env.REACT_APP_BACKEND_URL;
+
+const getMessagesAction = (limit) => {
+	return async (dispatch) => {
+		var url = backend_url + `/api/message/limit/${limit}`;
+		await axios
+			.get(url)
+			.then(async (response) => {
+				if (response.status === 200) {
+					if (response.data.status === 200) {
+						const messages = response.data.messages;
+						await dispatch({
+							type: LOAD_MESSAGES,
+							payload: {
+								data: messages,
+							},
+						});
+					} else {
+						var error = new Error();
+						error.status = response.data.status;
+						error.message = response.data.message;
+						throw error;
+					}
+				}
+			})
+			.catch(async (error) => {
+				var error_message;
+				try {
+					error_message = error.response.data.message;
+				} catch (e) {
+					error_message = error.message;
+				}
+
+				error_message = error_message || "Something went wrong";
+				console.error(error_message);
+
+				await dispatch({
+					type: LOAD_MESSAGES,
+					payload: {
+						data: [],
+					},
+				});
+			});
+	};
+};
+
+export default getMessagesAction;
